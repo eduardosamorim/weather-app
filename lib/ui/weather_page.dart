@@ -39,7 +39,6 @@ class _WeatherPageState extends State<WeatherPage> {
       case 'smoke':
       case 'haze':
       case 'fog':
-      case 'fog':
         return 'assets/cloud.json';
       case 'rain':
       case 'drizzle':
@@ -79,11 +78,16 @@ class _WeatherPageState extends State<WeatherPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  _weather?.cityName ?? "loading city..",
-                  style: const TextStyle(fontSize: 24.0),
-                ),
                 const Icon(Icons.location_on),
+                Text(
+                  _weather?.cityName.toUpperCase() ??
+                      "loading city..".toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.grey.shade700,
+                  ),
+                ),
               ],
             ),
 
@@ -94,11 +98,19 @@ class _WeatherPageState extends State<WeatherPage> {
               children: [
                 Text(
                   '${_weather?.temperature.round()}ºC',
-                  style: const TextStyle(fontSize: 24.0),
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.grey.shade700,
+                  ),
                 ),
                 Text(
-                  _weather!.mainCondition ?? "",
-                  style: const TextStyle(fontSize: 24.0),
+                  _weather?.mainCondition ?? "",
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.grey.shade700,
+                  ),
                 )
               ],
             ),
